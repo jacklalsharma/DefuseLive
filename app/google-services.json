@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "65097366863",
+    "firebase_url": "https://defuselive.firebaseio.com",
+    "project_id": "defuselive",
+    "storage_bucket": "defuselive.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:65097366863:android:47a5fa9aa2706c21",
+        "android_client_info": {
+          "package_name": "com.minixeroxindia.defuse"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "65097366863-2cvkhdmuoe7lgtqbb7705oknh152dalh.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.minixeroxindia.defuse",
+            "certificate_hash": "30727e075c950b754cff7f5bef0cf121ad5d5ce6"
+          }
+        },
+        {
+          "client_id": "65097366863-cjr5kuojkl2orbiid2298a6tbv0u9d7g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAvcNgwG092rgXimRW1mIMsp_xpGIGitTY"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "65097366863-cjr5kuojkl2orbiid2298a6tbv0u9d7g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

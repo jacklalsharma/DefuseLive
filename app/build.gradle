@@ -1,0 +1,43 @@
+apply plugin: 'com.android.application'
+
+android {
+
+    signingConfigs {
+        release {
+            keyAlias 'defuseGame'
+            keyPassword 'defuse'
+            storeFile file('./keystore')
+            storePassword 'defuse'
+        }
+    }
+    compileSdkVersion 27
+    buildToolsVersion "27.0.3"
+
+    defaultConfig {
+        applicationId "com.minixeroxindia.defuse"
+        minSdkVersion 15
+        targetSdkVersion 27
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-project.txt'
+            signingConfig signingConfigs.release
+        }
+        debug {
+            signingConfig signingConfigs.release
+        }
+    }
+}
+
+dependencies {
+    implementation 'com.android.support:support-v4:27.1.1'
+    implementation 'com.google.android.gms:play-services:12.0.1'
+    implementation files('libs/crittercism_v5_0_6_sdkonly.jar')
+    implementation 'com.google.firebase:firebase-database:12.0.1'
+    implementation 'com.facebook.android:facebook-share:[4,5)'
+}
+
+apply plugin: 'com.google.gms.google-services'

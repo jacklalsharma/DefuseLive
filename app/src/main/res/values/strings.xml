@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="banner_ad_unit_id">ca-app-pub-8556556796236697/1944835568</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-8556556796236697/7293365162</string>
+    <string name="ap_promotion">com.viceversaog.minixerox</string>
+    <string name="app_name">Defuse</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="action_settings">Settings</string>
+    <string name="lblSound">Sound</string>
+    <string name="lblVibrate">Vibrate</string>
+    <string name="classic_fragment">Click the buttons in same order as shown in the blink pattern.</string>
+    <string name="classic_reverse_fragment">Click the buttons in reverse order as shown in the blink pattern.</string>
+    <string name="arcade_fragment">Choose any blink pattern to practice particular blink patterns.</string>
+    <string name="swap_fragment">Click the buttons in same order as shown in the blink pattern after they change their place.</string>
+    <string name="swap_reverse_fragment">Click the buttons in reverse order of pattern shown in the blink pattern after numbers change their place.</string>
+    <string name="title_classic">Classic</string>
+    <string name="replay">Can replay the blink pattern once per level</string>
+    <string name="title_reverse">Classic Reverse</string>
+    <string name="title_arcade">Arcade</string>
+    <string name="title_twist">Twist</string>
+    <string name="title_twist_rev">Twist Reverse</string>
+    <string name="title_replay">Replay</string>
+    <string name="title_share_score">Share Score</string>
+    <string name="title_twist_arcade">Arcade Twist</string>
+    <string name="share_text">Defuse</string>
+    <string name="app_id">5533676f8172e25e67906983</string>
+    <string name="title_activity_play_store">PlayStoreActivity</string>
+    <string name="title_help">Help?</string>
+    <string name="title_rate_us">Rate Us</string>
+    <string name="credits_desription">Help?</string>
+    <string name="lbl_high_score">High Score -&#160;</string>
+    <string name="lbl_share_score"></string>
+    <string name="lbl_cur_score">Current Score -&#160;</string>
+    <string name="lbl_game_over">Game Over</string>
+    <string name="share_subject">Defuse</string>
+    <string name="share_message">Do you really think you can remember more than 10 random numbers.\nI bet you cant.\nRefuse it or beat my high score to DEFUSE it.\nGet the challenge on Google Play Store now -&#160;</string>
+    <string name="credit"><b><u>Credits</u></b>\n\n
+Created By - MiniXerox\n\n
+Project Manager - Chaitya Shah, 
+Yahoman Apte\n\n
+Co-Programmers - Vedanshu Patel, 
+Pranay Sankhe, 
+Bhagyash Patil\n\n
+Creative Head - Prachit Patil, 
+Akshay Sagvekar\n\n
+Creative Team - Ashish Mungekar, 
+                        Amey Patil, 
+                        Akshay Kadam\n\n
+
+Project Coordinator - Fanil Mehta, 
+                               Krishna Agarwal\n\n
+
+Business Development Officer - Vikat Sankhe\n\n
+
+Business Analyst - Aniruddha Madav, 
+                             Kshitij Tambde, 
+                             Sameer Paradkar, Tabish Shaikh\n\n
+Creative Designer - Aniket Sawant  ,  Pranav Tambe\n\n
+Support team - Gaurang Sawant, 
+                      Vaibhav Javkar, 
+                      Shirish Jadhav,     
+                      Milind Mhatre, 
+                      Dheeraj Gupta,  
+                      Parth Achrekar</string>
+
+    <string name="lbl_yes_no_dialog">Do you really want to exit?</string>
+
+    <string name="app_id_games">65097366863</string>
+
+    <string name="facebook_app_id">1404895219655937</string>
+    <string name="fb_login_protocol_scheme">fb1404895219655937</string>
+
+</resources>
