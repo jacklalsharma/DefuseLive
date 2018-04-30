@@ -5,6 +5,9 @@ import java.io.File;
 import android.app.Application;
 import android.util.Log;
 
+import com.google.android.gms.ads.MobileAds;
+import com.minixeroxindia.defuse.R;
+
 public class MyApplication extends Application {
 	private static MyApplication instance;
 
@@ -12,6 +15,8 @@ public class MyApplication extends Application {
 	public void onCreate() {
 		super.onCreate();
 		instance = this;
+		MobileAds.initialize(this,
+				getResources().getString(R.string.ad_id));
 	}
 
 	public static MyApplication getInstance() {

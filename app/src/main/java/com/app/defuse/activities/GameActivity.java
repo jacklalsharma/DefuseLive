@@ -16,6 +16,7 @@ import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
 import android.os.IBinder;
+import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
 import android.util.Base64;
 import android.util.Log;
@@ -55,6 +56,8 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.auth.api.signin.GoogleSignIn;
 import com.google.android.gms.games.Games;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -306,9 +309,30 @@ public class GameActivity extends BaseActivity implements
                 Log.d("POST_ID", result.getPostId() + "  " );
                 //if(result.getPostId() != null)
                 {
+                    String id = "";
+
+                    switch (mGameType) {
+
+                        case GAME_CLASSIC:
+                            id = "CgkIz_rrwPIBEAIQAQ";
+                            break;
+
+                        case GAME_CLASSIC_REVERSE:
+                            id =  "CgkIz_rrwPIBEAIQAg";
+                            break;
+
+                        case GAME_SWAP:
+                            id = "CgkIz_rrwPIBEAIQAw";
+                            break;
+
+                        case GAME_SWAP_REVERSE:
+                            id = "CgkIz_rrwPIBEAIQBA";
+                            break;
+
+                    }
 
                     Games.getLeaderboardsClient(GameActivity.this, GoogleSignIn.getLastSignedInAccount(GameActivity.this))
-                            .submitScore("CgkIz_rrwPIBEAIQAQ", score);
+                            .submitScore(id, score);
                     Toast.makeText(GameActivity.this, "Score Successfully Uploaded", Toast.LENGTH_LONG).show();
                     if(CustomDialog.isGameOver){
                         startActivity(new Intent(GameActivity.this, HomeActivity.class));
@@ -352,6 +376,35 @@ public class GameActivity extends BaseActivity implements
 		 * Secure.ANDROID_ID)) .build();
 		 */
 		mInterstitialAd.loadAd(adRequest);
+
+		mInterstitialAd.setAdListener(new AdListener(){
+            @Override
+            public void onAdLoaded() {
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                // Code to be executed when an ad request fails.
+
+                Log.d("AD_FAILED","FAIELD - " + errorCode);
+            }
+
+            @Override
+            public void onAdOpened() {
+                // Code to be executed when the ad is displayed.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                // Code to be executed when when the interstitial ad is closed.
+            }
+        });
 	}
 
 	@Override
@@ -1327,5 +1380,46 @@ public class GameActivity extends BaseActivity implements
 			}
 		});
 	}
+
+    public void showLeaderBoard(){
+
+	    String id = "";
+
+        switch (mGameType) {
+
+            case GAME_CLASSIC:
+                id = "CgkIz_rrwPIBEAIQAQ";
+                break;
+
+            case GAME_CLASSIC_REVERSE:
+                id =  "CgkIz_rrwPIBEAIQAg";
+                break;
+
+            case GAME_SWAP:
+                id = "CgkIz_rrwPIBEAIQAw";
+                break;
+
+            case GAME_SWAP_REVERSE:
+                id = "CgkIz_rrwPIBEAIQBA";
+                break;
+
+        }
+        Log.d("LEADERBOARD", "SHOW");
+        Games.getLeaderboardsClient(getActivity(), GoogleSignIn.getLastSignedInAccount(getActivity()))
+                .getLeaderboardIntent(id)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                })
+                .addOnSuccessListener(new OnSuccessListener<Intent>() {
+                    @Override
+                    public void onSuccess(Intent intent) {
+                        startActivityForResult(intent, 101);
+                    }
+
+                });
+    }
 
 }

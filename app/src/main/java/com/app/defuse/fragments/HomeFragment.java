@@ -3,6 +3,7 @@ package com.app.defuse.fragments;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -16,6 +17,10 @@ import com.app.defuse.activities.GameActivity;
 import com.app.defuse.activities.HomeActivity;
 import com.app.defuse.base.BaseFragment;
 import com.app.defuse.helpers.Commons;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.minixeroxindia.defuse.R;
 
 /**
@@ -75,6 +80,27 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 			}
 		});
 
+	}
+
+	public void showLeaderBoard(){
+
+		String id = "CgkIz_rrwPIBEAIQAQ";
+		Log.d("LEADERBOARD", "SHOW");
+		Games.getLeaderboardsClient(getActivity(), GoogleSignIn.getLastSignedInAccount(getActivity()))
+				.getLeaderboardIntent(id)
+				.addOnFailureListener(new OnFailureListener() {
+					@Override
+					public void onFailure(@NonNull Exception e) {
+
+					}
+				})
+				.addOnSuccessListener(new OnSuccessListener<Intent>() {
+					@Override
+					public void onSuccess(Intent intent) {
+						startActivityForResult(intent, 101);
+					}
+
+				});
 	}
 
 	/*

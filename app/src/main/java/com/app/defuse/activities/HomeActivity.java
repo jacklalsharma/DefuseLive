@@ -1,11 +1,14 @@
 package com.app.defuse.activities;
 
+import android.app.Activity;
+import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.WindowManager;
 import android.widget.TextView;
@@ -105,6 +108,8 @@ public class HomeActivity extends BaseActivity {
             Intent intent = signInClient.getSignInIntent();
             startActivityForResult(intent, 1001);
         }
+
+		showInfoDialog();
 	}
 
 	public void initAdds() {
@@ -414,6 +419,30 @@ public class HomeActivity extends BaseActivity {
         startActivityForResult(intent, 1001);
     }
 
+
+    private Activity getActivity(){
+    	return this;
+	}
+
+	private void showInfoDialog(){
+		final Dialog mDialog = new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+
+		LayoutInflater inflater = this.getLayoutInflater();
+		View dialogView = inflater.inflate(R.layout.dialog_info, null);
+
+		dialogView.findViewById(R.id.join_contest).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				if(mDialog != null){
+					mDialog.dismiss();
+				}
+			}
+		});
+
+		new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+		mDialog.setContentView(dialogView);
+		mDialog.show();
+	}
 
 
 }

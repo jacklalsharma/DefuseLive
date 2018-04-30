@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="banner_ad_unit_id">ca-app-pub-8556556796236697/1944835568</string>
-    <string name="interstitial_ad_unit_id">ca-app-pub-8556556796236697/7293365162</string>
+    <string name="ad_id">ca-app-pub-3375308416390907~4655344048</string>
+    <string name="banner_ad_unit_id">ca-app-pub-3375308416390907/9360752107</string>
+    <string name="interstitial_ad_unit_id">ca-app-pub-3375308416390907/3286422059</string>
     <string name="ap_promotion">com.viceversaog.minixerox</string>
     <string name="app_name">Defuse</string>
     <string name="hello_world">Hello world!</string>

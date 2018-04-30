@@ -80,24 +80,7 @@ public abstract  class BaseFragment extends Fragment {
         super.onSaveInstanceState(outState);
     }
 
-    protected void showLeaderBoard(){
-        Log.d("LEADERBOARD", "SHOW");
-        Games.getLeaderboardsClient(getActivity(), GoogleSignIn.getLastSignedInAccount(getActivity()))
-                .getLeaderboardIntent("CgkIz_rrwPIBEAIQAQ")
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
 
-                    }
-                })
-                .addOnSuccessListener(new OnSuccessListener<Intent>() {
-                    @Override
-                    public void onSuccess(Intent intent) {
-                        startActivityForResult(intent, 101);
-                    }
-
-                });
-    }
 
 
 
@@ -113,7 +96,8 @@ public abstract  class BaseFragment extends Fragment {
         mRootView.findViewById(R.id.click_current_score).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                showLeaderBoard();
+                GameActivity activity = (GameActivity) getActivity();
+                activity.showLeaderBoard();
             }
         });
     }

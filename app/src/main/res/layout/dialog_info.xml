@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialogbox_bg"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="200dp"
+        android:layout_margin="20dp"
+        android:background="@drawable/dialogbox_popup"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.app.defuse.views.MyTextView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txtGameOverHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:textAlignment="center"
+            android:text="Top 100 high scores in leaderboard will win cash prizes."
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <TextView
+            android:id="@+id/game_buy_credtis"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginBottom="25dp"
+            android:textColor="@android:color/white"
+            android:visibility="gone" />
+
+
+
+        <com.app.defuse.views.MyTextView
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Got It"
+            android:id="@+id/join_contest"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+        <com.app.defuse.views.MyTextView
+            android:visibility="gone"
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Not Now"
+            android:id="@+id/game_over_exit"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/share_score"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:textColor="@drawable/selecotor_text"
+            android:gravity="center"
+            android:padding="10dp"
+            android:text="@string/title_share_score"
+            android:textStyle="bold" />
+    </LinearLayout>
+
+</LinearLayout>
