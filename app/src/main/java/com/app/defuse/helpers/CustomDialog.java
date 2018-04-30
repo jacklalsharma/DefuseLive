@@ -1,10 +1,13 @@
 package com.app.defuse.helpers;
 
 import android.app.Dialog;
+import android.content.Intent;
 import android.media.MediaPlayer;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.DialogFragment;
 import android.support.v4.app.Fragment;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +20,10 @@ import com.app.defuse.activities.ArcadeActivity;
 import com.app.defuse.activities.GameActivity;
 import com.app.defuse.activities.TwistArcadeActivity;
 import com.app.defuse.base.BaseActivity;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.games.Games;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.minixeroxindia.defuse.R;
 
 /**
@@ -167,6 +174,14 @@ public class CustomDialog extends DialogFragment implements
             }
         });
 
+        view.findViewById(R.id.view).setVisibility(View.VISIBLE);
+        view.findViewById(R.id.view).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                showLeaderboardDialog();
+            }
+        });
+
         view.findViewById(R.id.share_score).setVisibility(View.GONE);
     }
 
@@ -270,9 +285,101 @@ public class CustomDialog extends DialogFragment implements
 
         GameActivity activity1 = (GameActivity) getActivity();
         if(activity1 != null) {
-            activity1.fbShare(score);
+            activity1.fbShare(score, gameType);
         }
 
+    }
+
+    public void showLeaderboardDialog(){
+        final Dialog mDialog = new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_select_leaderboard, null);
+
+        dialogView.findViewById(R.id.classic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(0);
+            }
+        });
+
+        dialogView.findViewById(R.id.classic_reverse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(1);
+            }
+        });
+
+        dialogView.findViewById(R.id.twist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(2);
+            }
+        });
+
+        dialogView.findViewById(R.id.twist_reverse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(03);
+            }
+        });
+        new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+        mDialog.setContentView(dialogView);
+        mDialog.show();
+    }
+
+    public void showLeaderBoard(int mGameType){
+
+        String id = "";
+
+        switch (mGameType) {
+
+            case 0:
+                id = "CgkIz_rrwPIBEAIQAQ";
+                break;
+
+            case 1:
+                id =  "CgkIz_rrwPIBEAIQAg";
+                break;
+
+            case 2:
+                id = "CgkIz_rrwPIBEAIQAw";
+                break;
+
+            case 3:
+                id = "CgkIz_rrwPIBEAIQBA";
+                break;
+
+        }
+
+        Log.d("LEADERBOARD", "SHOW");
+        Games.getLeaderboardsClient(getActivity(), GoogleSignIn.getLastSignedInAccount(getActivity()))
+                .getLeaderboardIntent(id)
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+
+                    }
+                })
+                .addOnSuccessListener(new OnSuccessListener<Intent>() {
+                    @Override
+                    public void onSuccess(Intent intent) {
+                        startActivityForResult(intent, 101);
+                    }
+
+                });
     }
 
     private void showPurchaseDialog(final int gameType){

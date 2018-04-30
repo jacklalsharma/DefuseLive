@@ -1,5 +1,6 @@
 package com.app.defuse.fragments;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.Typeface;
 import android.os.Bundle;
@@ -76,15 +77,86 @@ public class HomeFragment extends BaseFragment implements View.OnClickListener {
 		rootView.findViewById(R.id.lbl_leaderboard).setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View view) {
-				showLeaderBoard();
+				showLeaderboardDialog();
 			}
 		});
 
 	}
 
-	public void showLeaderBoard(){
+    public void showLeaderboardDialog(){
+        final Dialog mDialog = new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
 
-		String id = "CgkIz_rrwPIBEAIQAQ";
+        LayoutInflater inflater = this.getLayoutInflater();
+        View dialogView = inflater.inflate(R.layout.dialog_select_leaderboard, null);
+
+        dialogView.findViewById(R.id.classic).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(0);
+            }
+        });
+
+        dialogView.findViewById(R.id.classic_reverse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(1);
+            }
+        });
+
+        dialogView.findViewById(R.id.twist).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(2);
+            }
+        });
+
+        dialogView.findViewById(R.id.twist_reverse).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(mDialog != null){
+                    mDialog.dismiss();
+                }
+                showLeaderBoard(03);
+            }
+        });
+        new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);
+        mDialog.setContentView(dialogView);
+        mDialog.show();
+    }
+
+	public void showLeaderBoard(int mGameType){
+
+        String id = "";
+
+        switch (mGameType) {
+
+            case 0:
+                id = "CgkIz_rrwPIBEAIQAQ";
+                break;
+
+            case 1:
+                id =  "CgkIz_rrwPIBEAIQAg";
+                break;
+
+            case 2:
+                id = "CgkIz_rrwPIBEAIQAw";
+                break;
+
+            case 3:
+                id = "CgkIz_rrwPIBEAIQBA";
+                break;
+
+        }
+
 		Log.d("LEADERBOARD", "SHOW");
 		Games.getLeaderboardsClient(getActivity(), GoogleSignIn.getLastSignedInAccount(getActivity()))
 				.getLeaderboardIntent(id)

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/dialogbox_bg"
+    android:gravity="center" >
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_margin="20dp"
+        android:background="@drawable/dialogbox_popup"
+        android:gravity="center"
+        android:orientation="vertical" >
+
+        <com.app.defuse.views.MyTextView
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:id="@+id/txtGameOverHeading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginBottom="15dp"
+            android:textAlignment="center"
+            android:text="View leaderboards for following Games."
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+        <com.app.defuse.views.MyTextView
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Classic Game"
+            android:id="@+id/classic"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+
+        <com.app.defuse.views.MyTextView
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Classic Reverse Game"
+            android:id="@+id/classic_reverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+
+        <com.app.defuse.views.MyTextView
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Twist Game"
+            android:id="@+id/twist"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+
+        <com.app.defuse.views.MyTextView
+            android:gravity="center"
+            android:textSize="14dp"
+            android:textColor="@android:color/white"
+            android:text="Twist Reverse Game"
+            android:id="@+id/twist_reverse"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_margin="10dp"
+            android:background="@drawable/press_level" />
+
+    </LinearLayout>
+
+</LinearLayout>

@@ -294,7 +294,7 @@ public class GameActivity extends BaseActivity implements
 	}
 
 
-    public void fbShare(final long score){
+    public void fbShare(final long score, final int gameTYpe){
         ShareLinkContent content = new ShareLinkContent.Builder()
                 .setContentTitle("Win 10000$")
                 .setContentDescription("I don't think you can beat my high score " + score + " in game DEFUSE! Check out game in google play -")
@@ -311,21 +311,21 @@ public class GameActivity extends BaseActivity implements
                 {
                     String id = "";
 
-                    switch (mGameType) {
+                    switch (gameTYpe) {
 
-                        case GAME_CLASSIC:
+                        case 0:
                             id = "CgkIz_rrwPIBEAIQAQ";
                             break;
 
-                        case GAME_CLASSIC_REVERSE:
+                        case 1:
                             id =  "CgkIz_rrwPIBEAIQAg";
                             break;
 
-                        case GAME_SWAP:
+                        case 2:
                             id = "CgkIz_rrwPIBEAIQAw";
                             break;
 
-                        case GAME_SWAP_REVERSE:
+                        case 3:
                             id = "CgkIz_rrwPIBEAIQBA";
                             break;
 
@@ -1138,7 +1138,7 @@ public class GameActivity extends BaseActivity implements
 
         GameActivity activity1 = (GameActivity) getActivity();
         if(activity1 != null) {
-            activity1.fbShare(score);
+            activity1.fbShare(score, gameType);
         }
 
     }
