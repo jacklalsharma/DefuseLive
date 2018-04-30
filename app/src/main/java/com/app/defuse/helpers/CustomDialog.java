@@ -332,7 +332,7 @@ public class CustomDialog extends DialogFragment implements
                 if(mDialog != null){
                     mDialog.dismiss();
                 }
-                showLeaderBoard(03);
+                showLeaderBoard(3);
             }
         });
         new Dialog(getActivity(), android.R.style.Theme_Light_NoTitleBar_Fullscreen);

@@ -173,7 +173,7 @@ public class NumberGamePreferences {
 	}
 
 	public void setHighScoreTwistClassic(long highScoreTwistClassic) {
-		prefEditor.putLong(highScoreReverseKey, highScoreTwistClassic);
+		prefEditor.putLong(highScoreTwistClassicKey, highScoreTwistClassic);
 		prefEditor.commit();
 	}
 
@@ -182,7 +182,7 @@ public class NumberGamePreferences {
 	}
 
 	public void setHighScoreTwistReverse(long highScoreTwistReverse) {
-		prefEditor.putLong(highScoreReverseKey, highScoreTwistReverse);
+		prefEditor.putLong(highScoreTwistReverseKey, highScoreTwistReverse);
 		prefEditor.commit();
 	}
 
